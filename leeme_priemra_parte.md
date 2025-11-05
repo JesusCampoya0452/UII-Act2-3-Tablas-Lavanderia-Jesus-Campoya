@@ -1,4 +1,4 @@
-🧺 Proyecto Django: Sistema de Administración de Lavandería
+# 🧺 Sistema de Administración de Lavandería
 
 Autor: Jesús Campoya
 Institución: CBTIS 128
@@ -7,11 +7,12 @@ Framework: Django
 Editor: Visual Studio Code
 Puerto del servidor: 8052
 
-🚀 Descripción del Proyecto
+# 🚀 Descripción del Proyecto
 
-Este proyecto tiene como objetivo desarrollar un sistema de administración para una lavandería utilizando Django, que permita gestionar clientes, empleados y servicios de forma sencilla, moderna y funcional.
+Este proyecto tiene como objetivo desarrollar un sistema de administración para una lavandería, utilizando el framework Django.
+Permite gestionar clientes, empleados y servicios de forma sencilla, moderna y funcional.
 
-El sistema inicia con el módulo de Cliente, dejando los módulos Empleado y Servicio preparados para su futura implementación.
+# 💡 En la versión actual se implementa el módulo Cliente, dejando preparados los módulos Empleado y Servicio para futuras expansiones.
 
 📁 Estructura del Proyecto
 UIII_Lavanderia_0452/
@@ -44,62 +45,59 @@ UIII_Lavanderia_0452/
     ├── urls.py
     └── admin.py
 
-⚙️ Procedimiento Paso a Paso
-1️⃣ Crear la carpeta del proyecto
+# ⚙️ Procedimiento Paso a Paso
+1️⃣ Crear carpeta del proyecto
 mkdir UIII_Lavanderia_0452
 cd UIII_Lavanderia_0452
 
-2️⃣ Abrir la carpeta en Visual Studio Code
+2️⃣ Abrir en Visual Studio Code
 
-Clic derecho sobre la carpeta → "Abrir con Code"
+Clic derecho → Abrir con Code
 
 O desde terminal:
 
 code .
 
-3️⃣ Abrir la terminal integrada en VS Code
+3️⃣ Abrir la terminal integrada
 
 Menú: Ver → Terminal
 
-4️⃣ Crear el entorno virtual
+4️⃣ Crear entorno virtual
 python -m venv .venv
 
 5️⃣ Activar el entorno virtual
-# En Windows
+
+Windows:
+
 .venv\Scripts\activate
 
-# En Linux/Mac
+
+Linux/Mac:
+
 source .venv/bin/activate
 
-6️⃣ Seleccionar el intérprete de Python
+6️⃣ Seleccionar intérprete de Python
 
-Presiona Ctrl + Shift + P
-
-Escribe: "Seleccionar intérprete de Python"
-
-Elige el que corresponde a .venv
+Presiona Ctrl + Shift + P → “Seleccionar intérprete de Python” → elige .venv
 
 7️⃣ Instalar Django
 pip install django
 
-8️⃣ Crear el proyecto principal (sin duplicar carpetas)
+8️⃣ Crear el proyecto principal
 django-admin startproject backend_Lavanderia .
 
-9️⃣ Ejecutar el servidor en el puerto 8052
+9️⃣ Ejecutar el servidor
 python manage.py runserver 8052
 
-🔗 Abrir el enlace en el navegador
+
+# 📎 Abrir en el navegador:
 http://127.0.0.1:8052/
 
-🧩 Crear la aplicación principal
+# 🧩 Crear la Aplicación Principal
 python manage.py startapp app_Lavanderia
 
-🧱 Modelos (models.py)
-from django.db import models
-
-# ==========================
-# MODELO CLIENTE
-# ==========================
+# 🧱 Modelos (models.py)
+👤 Cliente
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
@@ -112,10 +110,7 @@ class Cliente(models.Model):
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 
-
-# ==========================
-# MODELO EMPLEADO
-# ==========================
+👨‍🔧 Empleado
 class Empleado(models.Model):
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
@@ -128,10 +123,7 @@ class Empleado(models.Model):
     def __str__(self):
         return f"{self.nombre} ({self.puesto})"
 
-
-# ==========================
-# MODELO SERVICIO
-# ==========================
+🧼 Servicio
 class Servicio(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='servicios')
     empleados = models.ManyToManyField(Empleado, related_name='servicios')
@@ -154,13 +146,13 @@ class Servicio(models.Model):
     def __str__(self):
         return f"{self.tipo_servicio} - {self.cliente.nombre}"
 
-🧮 Migraciones
+# 🧮 Migraciones
 python manage.py makemigrations
 python manage.py migrate
 
 🧠 Vistas (views.py)
 
-Crear las siguientes funciones:
+Funciones principales:
 
 inicio_lavanderia
 
@@ -172,8 +164,7 @@ realizar_actualizacion_cliente
 
 borrar_cliente
 
-🧰 Archivos HTML
-📂 Estructura
+# 🧰 Archivos HTML
 app_Lavanderia/
 └── templates/
     ├── base.html
@@ -187,48 +178,48 @@ app_Lavanderia/
         ├── actualizar_cliente.html
         └── borrar_cliente.html
 
-🎨 Instrucciones de diseño
+# 🎨 Diseño
 
-Usar Bootstrap para CSS y JS.
+Framework Bootstrap (CSS y JS)
 
-Colores suaves, atractivos y modernos.
+Colores suaves, atractivos y modernos
 
-No validar entrada de datos.
+Código sencillo y funcional
 
-Código sencillo y funcional.
+No validar datos del usuario
 
-Mantener el footer fijo con derechos de autor:
+Footer fijo:
 
 © Creado por Jesús Campoya — CBTIS 128
 
-🗂️ Configuración de URLs
+# 🗂️ Configuración de URLs
 
-Crear urls.py en app_Lavanderia para las rutas CRUD.
+Crear urls.py en app_Lavanderia para rutas CRUD.
 
 Agregar app_Lavanderia en INSTALLED_APPS dentro de settings.py.
 
 Enlazar urls.py del proyecto con el de la aplicación.
 
-🔑 Panel de Administración
+# 🔑 Panel de Administración
 
-Registrar los modelos en admin.py y volver a ejecutar migraciones:
+Registrar los modelos en admin.py y aplicar migraciones:
 
 python manage.py makemigrations
 python manage.py migrate
 
-✅ Recomendaciones Finales
+# ✅ Recomendaciones Finales
 
-Trabajar primero con el modelo Cliente.
+Comienza con el modelo Cliente.
 
-Dejar pendientes Empleado y Servicio.
+Deja preparados los módulos Empleado y Servicio.
 
-Crear la estructura completa de carpetas desde el inicio.
+Crea la estructura completa desde el inicio.
 
-Asegurarse de que el proyecto sea totalmente funcional.
+Asegúrate de que el proyecto sea totalmente funcional.
 
-🖥️ Ejecutar el Servidor
+# 🖥️ Ejecución del Servidor
 python manage.py runserver 8052
 
 
-Abrir en el navegador:
-👉 http://127.0.0.1:8052/ http://127.0.0.1:8052/.
+🌐 Abrir en el navegador:
+👉 http://127.0.0.1:8052/
