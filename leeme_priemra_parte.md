@@ -14,37 +14,36 @@ Permite gestionar clientes, empleados y servicios de forma sencilla, moderna y f
 
 # 💡 En la versión actual se implementa el módulo Cliente, dejando preparados los módulos Empleado y Servicio para futuras expansiones.
 
-📁 Estructura del Proyecto
-UIII_Lavanderia_0452/
-│
-├── backend_Lavanderia/
-│   ├── backend_Lavanderia/
-│   │   ├── __init__.py
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   ├── asgi.py
-│   │   └── wsgi.py
-│   ├── manage.py
-│   └── db.sqlite3
-│
-└── app_Lavanderia/
-    ├── migrations/
-    ├── templates/
-    │   ├── base.html
-    │   ├── header.html
-    │   ├── navbar.html
-    │   ├── footer.html
-    │   ├── inicio.html
-    │   └── clientes/
-    │       ├── agregar_cliente.html
-    │       ├── ver_cliente.html
-    │       ├── actualizar_cliente.html
-    │       └── borrar_cliente.html
-    ├── models.py
-    ├── views.py
-    ├── urls.py
-    └── admin.py
-
+# 📁 Estructura del Proyecto
+    UIII_Lavanderia_0452/
+        │
+        ├── backend_Lavanderia/
+        │   ├── backend_Lavanderia/
+        │   │   ├── __init__.py
+        │   │   ├── settings.py
+        │   │   ├── urls.py
+        │   │   ├── asgi.py
+        │   │   └── wsgi.py
+        │   ├── manage.py
+        │   └── db.sqlite3
+        │
+        └── app_Lavanderia/
+            ├── migrations/
+            ├── templates/
+            │   ├── base.html
+            │   ├── header.html
+            │   ├── navbar.html
+            │   ├── footer.html
+            │   ├── inicio.html
+            │   └── clientes/
+            │       ├── agregar_cliente.html
+            │       ├── ver_cliente.html
+            │       ├── actualizar_cliente.html
+            │       └── borrar_cliente.html
+            ├── models.py
+            ├── views.py
+            ├── urls.py
+            └── admin.py
 # ⚙️ Procedimiento Paso a Paso
 1️⃣ Crear carpeta del proyecto
 mkdir UIII_Lavanderia_0452
